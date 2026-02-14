@@ -39,3 +39,10 @@ read this first after restart.
 - always include full repo url when assigning work.
 - ack exactly one owner per task; others review.
 - branch naming: prefer `feature/<agent>/<topic>` to avoid collisions.
+
+## workflow invariants (enforced)
+
+- never commit on `main`.
+- never `git push` manually.
+- always work on a feature branch and commit locally; automation/pushbot syncs.
+- if branch protection is enabled on main, pushbot must merge via PRs / required checks; sync failures should be loud and actionable.

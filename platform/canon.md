@@ -26,3 +26,5 @@
 - collapsed panes must have a **restore affordance** (button/chevron/hotkey).
 - persist *collapsed state* separately from *last expanded size* so restore is predictable.
 
+
+- `visage3d` canon renderer/runtime: **three.js** (web-first; static render is a snapshot/export mode).

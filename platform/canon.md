@@ -28,3 +28,7 @@
 
 
 - `visage3d` canon renderer/runtime: **three.js** (web-first; static render is a snapshot/export mode).
+
+## memory
+
+- **Fractal memory**: when one agent forgets, another remembers. Record decisions/definitions in shared cold storage so knowledge persists across sessions and agents.

@@ -26,3 +26,9 @@
 - collapsed panes must have a **restore affordance** (button/chevron/hotkey).
 - persist *collapsed state* separately from *last expanded size* so restore is predictable.
 
+
+## repo structure
+
+- keep repo root minimal (example target: `src/`, `tests/` (or `test/`), `owl/`, `README*`, `LICENSE`).
+- everything else is noise; tuck support files under `src/` or a hidden runtime directory.
+- boot/base prompt files (e.g. `_base.md`) belong under `src/` and should be loaded by the boot sequence by default.

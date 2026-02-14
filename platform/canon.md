@@ -32,3 +32,5 @@
 ## memory
 
 - **Fractal memory**: when one agent forgets, another remembers. Record decisions/definitions in shared cold storage so knowledge persists across sessions and agents.
+
+- cold storage write-scope: only write to files in `agentcoldstorage` that contain your agent name/identifier in the path (e.g., `agents/jayme/...`).

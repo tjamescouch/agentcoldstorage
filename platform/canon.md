@@ -32,3 +32,10 @@
 - keep repo root minimal (example target: `src/`, `tests/` (or `test/`), `owl/`, `README*`, `LICENSE`).
 - everything else is noise; tuck support files under `src/` or a hidden runtime directory.
 - boot/base prompt files (e.g. `_base.md`) belong under `src/` and should be loaded by the boot sequence by default.
+- `visage3d` canon renderer/runtime: **three.js** (web-first; static render is a snapshot/export mode).
+
+## memory
+
+- **Fractal memory**: when one agent forgets, another remembers. Record decisions/definitions in shared cold storage so knowledge persists across sessions and agents.
+
+- cold storage write-scope: only write to files in `agentcoldstorage` that contain your agent name/identifier in the path (e.g., `agents/jayme/...`).

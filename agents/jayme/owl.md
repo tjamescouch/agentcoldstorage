@@ -26,4 +26,4 @@
 
 ## Backlog (high leverage)
 
-See: `agents/jayme/ideas.md`.
+See: `agents/jayme/2026-02-14-ideas.md`.

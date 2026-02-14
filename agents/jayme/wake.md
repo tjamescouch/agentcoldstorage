@@ -1,48 +1,33 @@
-# wake — jayme
+# Jayme wake
 
-read this first after restart.
+## defaults
 
-## current priorities
+- Assume repos live at: `https://github.com/tjamescouch/<repo>`.
+- Don’t ask questions unless a missing concrete detail blocks execution.
+- Sign all chat messages with `— Jayme`.
+- Never commit on `main`.
+- Never `git push` manually (pushbot/automation syncs local commits).
 
-1) **visage** (https://github.com/tjamescouch/visage)
-- branch: `feature/emote-ws-bridge`
-- commit: `4c53f2e`
-- status: ws bridge + emote->mocap mapping landed; needs follow-up:
-  - add envelopes `{type,v,ts_ms,seq}`
-  - stdin streaming-safe parser for inline tags like `@@happy:2@@`
-  - strict parsing (ignore non-mocap), clamp/normalize ranges
-  - backpressure/latest-wins
+## quick triage
 
-2) **personas** (https://github.com/tjamescouch/personas)
-- branch: `feature/personas-readme-ccby`
-- commit: `ed68f8d`
-- status: pushed and ready to merge (readme + cc by 4.0 attribution for ellie + license pointer).
+1) Check #general for CLAIMs/collisions.
+2) If idle: `agentchat_listen` loop.
+3) If assigned work:
+   - post `CLAIM: ...`
+   - implement fully
+   - post result with branch + commit(s)
 
-3) **agentforce love bomb** (https://github.com/tjamescouch/agentforce)
-- branch: `feature/agentforce-lovebomb-docs`
-- latest commit (per chat): `bb72a3c`
-- status: docs/templates pr ready; next step is merge + deploy if desired.
+## recent shipped work (2026-02-14)
 
-## operational gotchas
+- `tjamescouch/agenttui` hardening: require explicit opt-in for remote AgentChat servers.
+  - Branch: `feature/agenttui-localonly`
+  - Commits: `102b6da`, `d41c24c`
+  - Behavior:
+    - default server is `ws://127.0.0.1:6667`
+    - remote `--server wss://...` blocked unless `--allow-remote` or `AGENTTUI_ALLOW_REMOTE=1` (or `AGENTCHAT_PUBLIC=true`).
 
-- pushbot nff spam fixed by genesis:
-  - repo: https://github.com/tjamescouch/agentchat
-  - file: `lib/supervisor/pushbot.sh`
-  - commit: `600071ed5770ee95dcf2570dec2860949dbd8873`
-  - change: failed-push semaphore keyed by commit hash + per-scan dedup.
+## notes
 
-- channel-not-found spam + "can't type in some channels" is client auto-joining ghost channels.
-  fix: client should only show/join existing channels; treat CHANNEL_NOT_FOUND as warn-once.
-
-## conventions
-
-- always include full repo url when assigning work.
-- ack exactly one owner per task; others review.
-- branch naming: prefer `feature/<agent>/<topic>` to avoid collisions.
-
-## workflow invariants (enforced)
-
-- never commit on `main`.
-- never `git push` manually.
-- always work on a feature branch and commit locally; automation/pushbot syncs.
-- if branch protection is enabled on main, pushbot must merge via PRs / required checks; sync failures should be loud and actionable.
+- If a tool is “local-only”, first determine whether it is:
+  - a server (bind `127.0.0.1`, don’t publish ports)
+  - or a client (block remote targets by default).

@@ -21,16 +21,18 @@ MIT CTO for James Couch. Primary owner of agentforce (web dashboard).
    - post results with branch + commit(s)
    - return to listen loop
 
-## current owned outputs
+## owned repos
 
-- `tjamescouch/agentforce`: login screen + UI polish
+- `tjamescouch/agentforce` — web dashboard (primary focus)
   - branch: `feature/login-screen-and-ui-polish`
-  - commits: `89544bf`, `1a065c4`
-  - changes:
-    - LoginScreen component (name input → persistent identity via localStorage)
-    - removed blue Send button from MessageFeed
-    - increased glass transparency (lower alpha on --glass-bg, increased backdrop blur)
-    - accessibility improvements (aria labels, sr-only, role=alert)
+  - commits: `89544bf`, `1a065c4`, `3e98dae`, `6b134bb`
+  - shipped: LoginScreen, removed blue Send button, glass transparency, readable agent names, owl spec updates, accessibility
+- `tjamescouch/agentdash` — legacy dashboard (likely to archive/deprecate in favor of agentforce)
+- `tjamescouch/agentctl-tui` — terminal dashboard (needs rename to `agenttui`)
+- `tjamescouch/agentchat` — gro npm resolution fix
+  - branch: `feature/gro-npm-package-resolution`
+  - commit: `dcee50f`
+  - shipped: agent-runner.sh resolves gro from npm package first
 
 ## context repos (read)
 
